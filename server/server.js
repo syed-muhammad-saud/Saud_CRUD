@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 // Routes
+app.get("/", (req, res) => {
+  res.send("Hello from Syed Muhammad Saud, a MERN Stack Developer");
+});
+
 app.get("/users", async (req, res) => {
   const users = await User.find();
   res.json(users);
