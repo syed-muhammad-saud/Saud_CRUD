@@ -7,7 +7,7 @@ const App = () => {
   const [message, setMessage] = useState("");
 
   const fetchUsers = async () => {
-    const response = await axios.get("http://localhost:5000/users");
+    const response = await axios.get("https://user-mang-api-saud.vercel.app/users");
     setUsers(response.data);
   };
 
@@ -15,10 +15,10 @@ const App = () => {
     e.preventDefault();
     try {
       if (formData._id) {
-        await axios.put(`http://localhost:5000/users/${formData._id}`, formData);
+        await axios.put(`https://user-mang-api-saud.vercel.app/users/${formData._id}`, formData);
         setMessage("User updated successfully!");
       } else {
-        await axios.post("http://localhost:5000/users", formData);
+        await axios.post("https://user-mang-api-saud.vercel.app/users", formData);
         setMessage("User added successfully!");
       }
       setFormData({ name: "", email: "", phone: "" });
@@ -32,7 +32,7 @@ const App = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/users/${id}`);
+      await axios.delete(`https://user-mang-api-saud.vercel.app/users/${id}`);
       setMessage("User deleted successfully!");
       fetchUsers();
     } catch (error) {
